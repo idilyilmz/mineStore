@@ -1,7 +1,9 @@
+'use client'
+
 import { useState } from 'react'
-import { products } from '../data/products'
-import ProductCard from '../components/ProductCard'
-import type { Category } from '../types'
+import { products } from '@/data/products'
+import ProductCard from '@/components/ProductCard'
+import type { Category } from '@/types'
 
 const categories: Category[] = ['Tops', 'Bottoms', 'Dresses', 'Outerwear', 'Shoes', 'Accessories']
 
@@ -19,7 +21,6 @@ export default function Shop() {
     <main className="px-6 md:px-12 py-12">
       <h1 className="text-3xl text-neutral-900 mb-10">Shop</h1>
 
-      {/* Filters */}
       <div className="flex flex-wrap items-center gap-x-6 gap-y-2 mb-12 text-sm text-neutral-500 border-b border-neutral-200 pb-6">
         {(['All', ...categories] as const).map((cat) => (
           <button

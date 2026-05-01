@@ -1,10 +1,13 @@
-import { useParams, useNavigate } from 'react-router-dom'
-import { products } from '../data/products'
-import { useCart } from '../context/CartContext'
+'use client'
+
+import { useParams, useRouter } from 'next/navigation'
+import { products } from '@/data/products'
+import { useCart } from '@/context/CartContext'
 
 export default function ProductDetail() {
-  const { id } = useParams()
-  const navigate = useNavigate()
+  const params = useParams()
+  const id = params.id as string
+  const router = useRouter()
   const { addItem, items } = useCart()
 
   const product = products.find((p) => p.id === id)
@@ -21,20 +24,19 @@ export default function ProductDetail() {
 
   function handleAddToCart() {
     addItem(product!)
-    navigate('/cart')
+    router.push('/cart')
   }
 
   return (
     <main className="px-6 md:px-12 py-12">
       <button
-        onClick={() => navigate(-1)}
+        onClick={() => router.back()}
         className="text-sm text-neutral-400 hover:text-neutral-700 mb-10 block tracking-wide transition-colors"
       >
         &larr; Back
       </button>
 
       <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
-        {/* Images */}
         <div className="aspect-[3/4] bg-neutral-100">
           {product.images[0] ? (
             <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" />
@@ -45,7 +47,6 @@ export default function ProductDetail() {
           )}
         </div>
 
-        {/* Info */}
         <div className="flex flex-col py-2">
           <p className="text-xs tracking-widest uppercase text-neutral-400 mb-3">{product.brand}</p>
           <h1 className="text-2xl md:text-3xl text-neutral-900 mb-4">{product.name}</h1>

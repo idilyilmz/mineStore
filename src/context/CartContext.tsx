@@ -1,6 +1,7 @@
-// eslint-disable-next-line react-refresh/only-export-components
+'use client'
+
 import { createContext, useContext, useState, type ReactNode } from 'react'
-import type { CartItem, Product } from '../types'
+import type { CartItem, Product } from '@/types'
 
 interface CartContextType {
   items: CartItem[]

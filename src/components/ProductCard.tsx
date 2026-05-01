@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import type { Product } from '../types'
+import Link from 'next/link'
+import type { Product } from '@/types'
 
 interface Props {
   product: Product
@@ -8,10 +8,9 @@ interface Props {
 export default function ProductCard({ product }: Props) {
   return (
     <Link
-      to={`/shop/${product.id}`}
+      href={`/shop/${product.id}`}
       className={`group block ${product.sold ? 'opacity-40 pointer-events-none' : ''}`}
     >
-      {/* Image */}
       <div className="aspect-[3/4] bg-neutral-100 overflow-hidden mb-3 relative">
         {product.images[0] ? (
           <img
@@ -31,7 +30,6 @@ export default function ProductCard({ product }: Props) {
         )}
       </div>
 
-      {/* Info */}
       <p className="text-xs text-neutral-400 tracking-wide mb-0.5">{product.brand}</p>
       <p className="text-sm text-neutral-800 mb-1">{product.name}</p>
       <div className="flex items-center justify-between">

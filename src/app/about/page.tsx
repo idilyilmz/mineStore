@@ -13,7 +13,10 @@ export default function About() {
           here catches your eye, it was probably a favourite of mine at some point.
         </p>
         <p>
-          Questions? Reach me at <a href="mailto:hello@minestore.com" className="border-b border-neutral-400 hover:text-neutral-900 transition-colors">hello@minestore.com</a>
+          Questions? Reach me at{' '}
+          <a href="mailto:hello@minestore.com" className="border-b border-neutral-400 hover:text-neutral-900 transition-colors">
+            hello@minestore.com
+          </a>
         </p>
       </div>
     </main>

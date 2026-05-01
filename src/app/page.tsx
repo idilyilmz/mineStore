@@ -1,6 +1,6 @@
-import { Link } from 'react-router-dom'
-import { products } from '../data/products'
-import ProductCard from '../components/ProductCard'
+import Link from 'next/link'
+import { products } from '@/data/products'
+import ProductCard from '@/components/ProductCard'
 
 export default function Home() {
   const featured = products.filter((p) => !p.sold).slice(0, 4)
@@ -14,7 +14,7 @@ export default function Home() {
           My closet,<br />your new favourite outfit.
         </h1>
         <Link
-          to="/shop"
+          href="/shop"
           className="inline-block mt-10 text-sm tracking-widest uppercase border-b border-neutral-800 pb-0.5 hover:text-neutral-500 hover:border-neutral-500 transition-colors"
         >
           Browse the shop
@@ -31,7 +31,7 @@ export default function Home() {
         </div>
         <div className="mt-12 text-center">
           <Link
-            to="/shop"
+            href="/shop"
             className="text-sm tracking-widest uppercase border-b border-neutral-400 pb-0.5 hover:text-neutral-500 transition-colors"
           >
             View all

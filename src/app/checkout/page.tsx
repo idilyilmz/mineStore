@@ -1,4 +1,6 @@
-import { useCart } from '../context/CartContext'
+'use client'
+
+import { useCart } from '@/context/CartContext'
 
 export default function Checkout() {
   const { items, totalPrice } = useCart()
@@ -8,12 +10,9 @@ export default function Checkout() {
       <h1 className="text-3xl text-neutral-900 mb-12">Checkout</h1>
 
       <div className="grid md:grid-cols-2 gap-16 max-w-4xl">
-        {/* Form */}
         <form className="flex flex-col gap-6">
           <div>
-            <label className="text-xs tracking-widest uppercase text-neutral-400 block mb-2">
-              Full name
-            </label>
+            <label className="text-xs tracking-widest uppercase text-neutral-400 block mb-2">Full name</label>
             <input
               type="text"
               placeholder="Jane Doe"
@@ -21,9 +20,7 @@ export default function Checkout() {
             />
           </div>
           <div>
-            <label className="text-xs tracking-widest uppercase text-neutral-400 block mb-2">
-              Email
-            </label>
+            <label className="text-xs tracking-widest uppercase text-neutral-400 block mb-2">Email</label>
             <input
               type="email"
               placeholder="jane@example.com"
@@ -31,16 +28,13 @@ export default function Checkout() {
             />
           </div>
           <div>
-            <label className="text-xs tracking-widest uppercase text-neutral-400 block mb-2">
-              Address
-            </label>
+            <label className="text-xs tracking-widest uppercase text-neutral-400 block mb-2">Address</label>
             <input
               type="text"
               placeholder="Street, city, country"
               className="w-full border-b border-neutral-300 py-2 text-sm text-neutral-900 focus:outline-none focus:border-neutral-900 transition-colors bg-transparent"
             />
           </div>
-
           <button
             type="submit"
             className="mt-4 border border-neutral-900 text-neutral-900 px-6 py-3 text-sm tracking-widest uppercase hover:bg-neutral-900 hover:text-white transition-colors"
@@ -49,7 +43,6 @@ export default function Checkout() {
           </button>
         </form>
 
-        {/* Summary */}
         <div>
           <p className="text-xs tracking-widest uppercase text-neutral-400 mb-6">Order summary</p>
           <ul className="divide-y divide-neutral-100 text-sm">
