@@ -7,6 +7,11 @@ import Footer from '@/components/Footer'
 export const metadata: Metadata = {
   title: 'mineStore',
   description: 'Pre-loved clothing, carefully selected.',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/apple-touch-icon.png',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
