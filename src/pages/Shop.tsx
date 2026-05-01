@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { products } from '../data/products'
 import ProductCard from '../components/ProductCard'
-import { Category } from '../types'
+import type { Category } from '../types'
 
 const categories: Category[] = ['Tops', 'Bottoms', 'Dresses', 'Outerwear', 'Shoes', 'Accessories']
 

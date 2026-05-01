@@ -1,5 +1,6 @@
-import { createContext, useContext, useState, ReactNode } from 'react'
-import { CartItem, Product } from '../types'
+// eslint-disable-next-line react-refresh/only-export-components
+import { createContext, useContext, useState, type ReactNode } from 'react'
+import type { CartItem, Product } from '../types'
 
 interface CartContextType {
   items: CartItem[]
