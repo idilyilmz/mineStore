@@ -11,7 +11,7 @@ export default function ProductDetail() {
 
   if (!product) {
     return (
-      <main className="px-6 py-20 text-center text-gray-400">
+      <main className="px-6 md:px-12 py-20 text-center text-neutral-400 text-sm">
         Product not found.
       </main>
     )
@@ -25,44 +25,49 @@ export default function ProductDetail() {
   }
 
   return (
-    <main className="px-6 py-10 max-w-4xl mx-auto">
-      <button onClick={() => navigate(-1)} className="text-sm text-gray-400 hover:text-gray-700 mb-8 block">
+    <main className="px-6 md:px-12 py-12">
+      <button
+        onClick={() => navigate(-1)}
+        className="text-sm text-neutral-400 hover:text-neutral-700 mb-10 block tracking-wide transition-colors"
+      >
         &larr; Back
       </button>
 
-      <div className="grid md:grid-cols-2 gap-10">
-        {/* Image */}
-        <div className="aspect-[3/4] bg-gray-100 rounded-xl overflow-hidden">
+      <div className="grid md:grid-cols-2 gap-12 lg:gap-20">
+        {/* Images */}
+        <div className="aspect-[3/4] bg-neutral-100">
           {product.images[0] ? (
             <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-gray-300 text-sm">
-              No image
+            <div className="w-full h-full flex items-center justify-center text-neutral-300 text-xs tracking-widest uppercase">
+              No photo
             </div>
           )}
         </div>
 
         {/* Info */}
-        <div className="flex flex-col">
-          <p className="text-sm text-gray-400 mb-1">{product.brand}</p>
-          <h1 className="text-2xl font-semibold text-gray-900 mb-2">{product.name}</h1>
-          <p className="text-2xl font-semibold text-gray-900 mb-6">€{product.price}</p>
+        <div className="flex flex-col py-2">
+          <p className="text-xs tracking-widest uppercase text-neutral-400 mb-3">{product.brand}</p>
+          <h1 className="text-2xl md:text-3xl text-neutral-900 mb-4">{product.name}</h1>
+          <p className="text-2xl text-neutral-900 mb-8">€{product.price}</p>
 
-          <div className="flex gap-3 mb-6 text-sm">
-            <span className="px-3 py-1 border border-gray-200 rounded-full text-gray-600">{product.size}</span>
-            <span className="px-3 py-1 border border-gray-200 rounded-full text-gray-600">{product.condition}</span>
-            <span className="px-3 py-1 border border-gray-200 rounded-full text-gray-600">{product.category}</span>
+          <div className="flex gap-4 mb-8 text-xs tracking-widest uppercase text-neutral-500">
+            <span>{product.size}</span>
+            <span className="text-neutral-200">|</span>
+            <span>{product.condition}</span>
+            <span className="text-neutral-200">|</span>
+            <span>{product.category}</span>
           </div>
 
-          <p className="text-gray-600 text-sm leading-relaxed mb-8">{product.description}</p>
+          <p className="text-sm text-neutral-600 leading-relaxed mb-10">{product.description}</p>
 
           {product.sold ? (
-            <p className="text-sm text-gray-400">This item has been sold.</p>
+            <p className="text-sm text-neutral-400 tracking-wide">This item has been sold.</p>
           ) : (
             <button
               onClick={handleAddToCart}
               disabled={inCart}
-              className="bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="border border-neutral-900 text-neutral-900 px-6 py-3 text-sm tracking-widest uppercase hover:bg-neutral-900 hover:text-white transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {inCart ? 'Already in cart' : 'Add to cart'}
             </button>

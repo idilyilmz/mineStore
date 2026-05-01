@@ -6,9 +6,12 @@ export default function Cart() {
 
   if (items.length === 0) {
     return (
-      <main className="px-6 py-20 text-center">
-        <p className="text-gray-400 mb-4">Your cart is empty.</p>
-        <Link to="/shop" className="text-sm text-gray-900 underline">
+      <main className="px-6 md:px-12 py-20 text-center">
+        <p className="text-neutral-400 text-sm mb-6">Your cart is empty.</p>
+        <Link
+          to="/shop"
+          className="text-sm tracking-widest uppercase border-b border-neutral-400 pb-0.5 hover:text-neutral-500 transition-colors"
+        >
           Go to shop
         </Link>
       </main>
@@ -16,32 +19,32 @@ export default function Cart() {
   }
 
   return (
-    <main className="px-6 py-10 max-w-2xl mx-auto">
-      <h1 className="text-2xl font-semibold text-gray-900 mb-8">Your cart</h1>
+    <main className="px-6 md:px-12 py-12 max-w-2xl">
+      <h1 className="text-3xl text-neutral-900 mb-12">Your cart</h1>
 
-      <ul className="divide-y divide-gray-100 mb-8">
+      <ul className="divide-y divide-neutral-100">
         {items.map(({ product }) => (
-          <li key={product.id} className="flex gap-4 py-4">
-            <div className="w-20 h-24 bg-gray-100 rounded-lg overflow-hidden flex-shrink-0">
+          <li key={product.id} className="flex gap-6 py-6">
+            <div className="w-20 h-24 bg-neutral-100 flex-shrink-0">
               {product.images[0] ? (
                 <img src={product.images[0]} alt={product.name} className="w-full h-full object-cover" />
               ) : (
-                <div className="w-full h-full flex items-center justify-center text-gray-300 text-xs">
-                  No img
+                <div className="w-full h-full flex items-center justify-center text-neutral-300 text-xs">
+                  —
                 </div>
               )}
             </div>
 
             <div className="flex-1">
-              <p className="text-xs text-gray-400">{product.brand}</p>
-              <p className="text-sm font-medium text-gray-900">{product.name}</p>
-              <p className="text-xs text-gray-400 mt-1">{product.size} · {product.condition}</p>
-              <p className="text-sm font-semibold text-gray-900 mt-2">€{product.price}</p>
+              <p className="text-xs text-neutral-400 tracking-wide mb-1">{product.brand}</p>
+              <p className="text-sm text-neutral-900 mb-1">{product.name}</p>
+              <p className="text-xs text-neutral-400">{product.size} · {product.condition}</p>
+              <p className="text-sm text-neutral-900 mt-2">€{product.price}</p>
             </div>
 
             <button
               onClick={() => removeItem(product.id)}
-              className="text-xs text-gray-400 hover:text-gray-700 self-start mt-1"
+              className="text-xs text-neutral-300 hover:text-neutral-600 self-start tracking-wide transition-colors"
             >
               Remove
             </button>
@@ -49,14 +52,14 @@ export default function Cart() {
         ))}
       </ul>
 
-      <div className="border-t border-gray-200 pt-6 flex items-center justify-between mb-6">
-        <span className="text-gray-600">Total</span>
-        <span className="text-xl font-semibold text-gray-900">€{totalPrice}</span>
+      <div className="border-t border-neutral-200 pt-6 flex items-center justify-between mb-8 mt-2">
+        <span className="text-sm text-neutral-500">Total</span>
+        <span className="text-xl text-neutral-900">€{totalPrice}</span>
       </div>
 
       <Link
         to="/checkout"
-        className="block w-full text-center bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-700 transition-colors"
+        className="block text-center border border-neutral-900 text-neutral-900 px-6 py-3 text-sm tracking-widest uppercase hover:bg-neutral-900 hover:text-white transition-colors"
       >
         Proceed to checkout
       </Link>

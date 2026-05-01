@@ -4,58 +4,64 @@ export default function Checkout() {
   const { items, totalPrice } = useCart()
 
   return (
-    <main className="px-6 py-10 max-w-2xl mx-auto">
-      <h1 className="text-2xl font-semibold text-gray-900 mb-8">Checkout</h1>
+    <main className="px-6 md:px-12 py-12">
+      <h1 className="text-3xl text-neutral-900 mb-12">Checkout</h1>
 
-      <div className="grid md:grid-cols-2 gap-10">
+      <div className="grid md:grid-cols-2 gap-16 max-w-4xl">
         {/* Form */}
-        <form className="flex flex-col gap-4">
+        <form className="flex flex-col gap-6">
           <div>
-            <label className="text-xs text-gray-500 block mb-1">Full name</label>
+            <label className="text-xs tracking-widest uppercase text-neutral-400 block mb-2">
+              Full name
+            </label>
             <input
               type="text"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gray-400"
               placeholder="Jane Doe"
+              className="w-full border-b border-neutral-300 py-2 text-sm text-neutral-900 focus:outline-none focus:border-neutral-900 transition-colors bg-transparent"
             />
           </div>
           <div>
-            <label className="text-xs text-gray-500 block mb-1">Email</label>
+            <label className="text-xs tracking-widest uppercase text-neutral-400 block mb-2">
+              Email
+            </label>
             <input
               type="email"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gray-400"
               placeholder="jane@example.com"
+              className="w-full border-b border-neutral-300 py-2 text-sm text-neutral-900 focus:outline-none focus:border-neutral-900 transition-colors bg-transparent"
             />
           </div>
           <div>
-            <label className="text-xs text-gray-500 block mb-1">Address</label>
+            <label className="text-xs tracking-widest uppercase text-neutral-400 block mb-2">
+              Address
+            </label>
             <input
               type="text"
-              className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-gray-400"
               placeholder="Street, city, country"
+              className="w-full border-b border-neutral-300 py-2 text-sm text-neutral-900 focus:outline-none focus:border-neutral-900 transition-colors bg-transparent"
             />
           </div>
 
           <button
             type="submit"
-            className="mt-2 bg-gray-900 text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-gray-700 transition-colors"
+            className="mt-4 border border-neutral-900 text-neutral-900 px-6 py-3 text-sm tracking-widest uppercase hover:bg-neutral-900 hover:text-white transition-colors"
           >
             Place order
           </button>
         </form>
 
-        {/* Order summary */}
+        {/* Summary */}
         <div>
-          <h2 className="text-sm font-medium text-gray-900 mb-4">Order summary</h2>
-          <ul className="divide-y divide-gray-100 text-sm text-gray-600">
+          <p className="text-xs tracking-widest uppercase text-neutral-400 mb-6">Order summary</p>
+          <ul className="divide-y divide-neutral-100 text-sm">
             {items.map(({ product }) => (
-              <li key={product.id} className="flex justify-between py-2">
+              <li key={product.id} className="flex justify-between py-3 text-neutral-700">
                 <span>{product.name}</span>
                 <span>€{product.price}</span>
               </li>
             ))}
           </ul>
-          <div className="flex justify-between font-semibold text-gray-900 mt-4 pt-4 border-t border-gray-200">
-            <span>Total</span>
+          <div className="flex justify-between text-neutral-900 mt-4 pt-4 border-t border-neutral-200">
+            <span className="text-sm">Total</span>
             <span>€{totalPrice}</span>
           </div>
         </div>

@@ -1,28 +1,46 @@
-import { Link } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 
 export default function Navbar() {
   const { totalItems } = useCart()
 
   return (
-    <nav className="border-b border-gray-200 px-6 py-4 flex items-center justify-between">
-      <Link to="/" className="text-xl font-semibold tracking-tight text-gray-900">
+    <header className="border-b border-neutral-200 px-6 md:px-12 py-5 flex items-center justify-between">
+      <Link to="/" className="text-lg tracking-widest uppercase">
         mineStore
       </Link>
 
-      <div className="flex items-center gap-6 text-sm text-gray-600">
-        <Link to="/shop" className="hover:text-gray-900 transition-colors">
+      <nav className="flex items-center gap-8 text-sm tracking-wide">
+        <NavLink
+          to="/shop"
+          className={({ isActive }) =>
+            isActive ? 'border-b border-neutral-800' : 'hover:border-b border-neutral-400 transition-all'
+          }
+        >
           Shop
-        </Link>
-        <Link to="/cart" className="relative hover:text-gray-900 transition-colors">
+        </NavLink>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? 'border-b border-neutral-800' : 'hover:border-b border-neutral-400 transition-all'
+          }
+        >
+          About
+        </NavLink>
+        <NavLink
+          to="/cart"
+          className={({ isActive }) =>
+            `relative ${isActive ? 'border-b border-neutral-800' : 'hover:border-b border-neutral-400 transition-all'}`
+          }
+        >
           Cart
           {totalItems > 0 && (
-            <span className="absolute -top-2 -right-3 bg-gray-900 text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">
-              {totalItems}
+            <span className="absolute -top-2 -right-3 text-xs text-neutral-500">
+              ({totalItems})
             </span>
           )}
-        </Link>
-      </div>
-    </nav>
+        </NavLink>
+      </nav>
+    </header>
   )
 }
