@@ -1,4 +1,9 @@
 @import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:where(.dark, .dark *));
 
 :root {
   --font-serif: 'Times New Roman', Times, serif;
@@ -14,6 +19,11 @@ body {
   color: #1a1a1a;
   font-family: var(--font-serif);
   -webkit-font-smoothing: antialiased;
+}
+
+.dark body {
+  background: #071024;
+  color: #e6eef8;
 }
 
 h1, h2, h3, h4 {
